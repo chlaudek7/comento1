@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import "reset.css";
+html{font-family: 'Noto Sans KR', sans-serif;}
+body {
+    -ms-overflow-style:none;  
+    font-size: 16px;
+    line-height: 24px;
+}
+body::-webkit-scrollbar { display:none; }
+
+.main_container{margin: 16px auto;}
+.explain {display:inline-block; font-weight: normal; line-height: 1.78; letter-spacing: -0.45px;white-space: pre-wrap;}
+.content{
+    width: 1400px;
+    margin:0 auto;
+}
+.banner{
+    background: linear-gradient(to right, #205ccd, #4f1cb4);
+    padding: 130px 100px 100px;
+    color:#fff;
+}
+.banner p{
+    font-size: 16px;
+    line-height: 24px;
+}
+.banner p:first-child{
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+.go_btn{
+    background-color: #fff;
+    border:0;
+    width: 250px;
+    color:#000;
+    border-radius: 30px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.go_btn:hover{
+    background-color: #4f1cb4;
+    transition: 0.3s
+    ;
+    color:#fff;
+}
+
+.banner .go_btn{
+    margin-top: 40px;
+}
+.strong_tit{
+    font-size: 24px;
+    font-weight: bold;
+}
+#st1 {
+    padding: 140px 0 100px;
+}
+#st1 .strong_tit{
+    margin-bottom: 24px;
+}
+#st1 .st_txt p:last-child{
+    margin-top: 20px;
+}
+.flex_box{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+#st1 .st_txt{
+    width: 70%;
+    margin-left: 50px;
+}
+#st1 .st_img img{
+    width: 100%;
+}
+#st2{
+    background-color: #f7f9fb;
+    padding: 100px 0 ;
+}
+#st2 ul{
+    display: flex;
+    justify-content: space-between;
+}
+#st2 ul li{
+    width: 460px;
+    border-radius: 15px;
+    color:#fff;
+    padding: 30px 25px;
+    word-break: keep-all;
+}
+#st2 ul li:first-child{
+    background-color: #4f1cb4;
+}
+#st2 ul li:last-child{
+    background-color: #205ccd
+}
+#st2 ul li .strong_tit{
+    margin-bottom: 30px;
+}
+#st2 ul li p:first-child{
+    font-weight: 300;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
