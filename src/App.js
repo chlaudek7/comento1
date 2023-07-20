@@ -1,11 +1,12 @@
 
 import './App.css';
 import {HashRouter, Route,Routes} from 'react-router-dom';
-import Home from './pages/home.js'
-import Content from './pages/content.js'
-import About from './pages/about.js'
-import Login from './pages/login.js'
+import Home from './pages/Home.js'
+import Content from './pages/Content.js'
+import About from './pages/About.js'
+import Login from './pages/Login.js'
 import "./assets/css.css";
+
 function App() {
   return (
 

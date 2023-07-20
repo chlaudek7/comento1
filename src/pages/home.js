@@ -24,7 +24,7 @@ const Home = () =>{
                     <div className="content">
                         <div className="flex_box">
                             <div className="st_img">
-                                <img src ={stImg} />
+                                <img src ={stImg} alt="이미지" />
                             </div>
                             <div className="st_txt">
                                 <p className="strong_tit">정확한 종목 추출을 위한 KoGPT2 모델</p>
