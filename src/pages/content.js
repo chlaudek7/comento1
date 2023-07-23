@@ -1,5 +1,6 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import { Link } from 'react-router-dom'
 import axios from  'axios';
 import React, {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
@@ -52,6 +53,7 @@ const Content = () =>{
     const [title,setTitle]= useState("")
     const [contents,setContents]= useState("")
     const [btnNumber,setBtnNumber]= useState("")
+    const [keywords,setKeword]= useState("")
     const getData=(keyword,idx)=>{
         
         axios.get(`https://d9390710-b9c8-490b-8005-e11d0772b58c.mock.pstmn.io/news?keyword=${keyword}`).then(function(response){
@@ -59,14 +61,17 @@ const Content = () =>{
             setTitle(response.data.title)
             setContents(response.data.content)
             setBtnNumber(idx)
+            setKeword(keyword)
+            
             // console.log(btnColor)
-        })
+        }).catch(error=>console.log(error))
 
     }
     useEffect(()=>{
         setTitle(titleTxt)
         setContents(contentsTxt)
         setBtnNumber("")
+        setKeword("반도체")
         // getData("영업이익")
     },[])
 
@@ -99,7 +104,7 @@ const Content = () =>{
                         <div style={styles.fieldContent}>{contents}</div>
                         {/* <TextField id="txt_content"style={styles.field} variant="standard"/> */}
                     </div>
-                    <Button variant="contained" style={styles.submitBtn} onClick={() => { navigate('/Result/반도체'); }}>결과분석하기</Button>
+                    <Link to={`/result/${keywords}`}><Button variant="contained" style={styles.submitBtn}>결과보기</Button></Link>
                 </div>
             <Footer/>
         </div>
