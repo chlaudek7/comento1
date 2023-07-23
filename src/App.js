@@ -5,6 +5,7 @@ import Home from './pages/Home.js'
 import Content from './pages/Content.js'
 import About from './pages/About.js'
 import Login from './pages/Login.js'
+import Result from './pages/Result_view.js'
 import "./assets/css.css";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Route path="/about/:id" element={<About/>}/>
       <Route path="/Content" element={<Content/>}/>
       <Route path="/login" element={<Login/>}/>
+      <Route path="/Result/:keword" element={<Result/>}/>
     </Routes>
   );
 }
