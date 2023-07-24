@@ -11,7 +11,7 @@ const Result_view = () =>{
     const [results,setResult]= useState("")
     const getData=(keyword)=>{
         
-        axios.get(`https://d9390710-b9c8-490b-8005-e11d0772b58c.mock.pstmn.io//tock/news?keyword=${keyword}`).then(function(response){
+        axios.get(`http://localhost:5000/stock/${keyword}`).then(response=>{
             console.log(response.data)
             
             

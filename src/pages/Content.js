@@ -58,12 +58,12 @@ const Content = () =>{
     const [btnNumber,setBtnNumber]= useState("")
     const [keywords,setKeword]= useState("")
     const getData=(keyword,idx)=>{
-        axios.get(`https://d9390710-b9c8-490b-8005-e11d0772b58c.mock.pstmn.io/news?keyword=${keyword}`).then(response=>{ 
+        axios.get(`http://localhost:5000/news/${keyword}`).then(response=>{ 
             setTitle(response.data.title)
             setContents(response.data.content)
             setBtnNumber(idx)
             setKeword(keyword)
-            console.log(keyword)
+            console.log(response)
         }).catch(error=>console.log(error))
 
     }
@@ -79,7 +79,7 @@ const Content = () =>{
     const btnTxtArr = ['반도체', '영업이익', '상한가', '자동차'];
     const btnBox= btnTxtArr.map((btnTxt,idx)=>{
         return (
-            <Button value={idx} className={(idx==btnNumber?"on":"")} variant="outlined"onClick={() => getData(btnTxt,idx)}
+            <Button value={idx} key={idx} className={(idx==btnNumber?"on":"")} variant="outlined"onClick={() => getData(btnTxt,idx)}
                 sx={{
                     "&.on" : {
                         backgroundColor: "#205acc",
