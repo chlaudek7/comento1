@@ -5,16 +5,12 @@ import React, {useState, useEffect} from 'react';
 import {Link,useNavigate} from 'react-router-dom';
 import {ButtonGroup, Button,TextField } from '@mui/material';
 
-// import styles from "../assets/App.module.css";
+import AppStyles from "../assets/App.module.css";
 
 const Content = () =>{
     const navigate = useNavigate();
     const styles = {
-        "content" :{
-            width:"1200px",
-            margin:"0 auto"
-        },
-        
+     
         "inputWrap" :{
             marginTop:"15px" ,
             border:"2px solid blue",
@@ -93,7 +89,7 @@ const Content = () =>{
     return (
         <div>
               <Header/>
-                <div style={styles.content}>
+                <div className={AppStyles.content}>
                     <ButtonGroup>
                         {btnBox}
                     </ButtonGroup>
