@@ -53,7 +53,7 @@ const Content = () =>{
     const [btnNumber,setBtnNumber]= useState("")
     const [keywords,setKeword]= useState("")
     const getData=(keyword,idx)=>{
-        axios.get(`http://localhost:5000/news/${keyword}`).then(response=>{ 
+        axios.get(`http://localhost:8080/news/${keyword}`).then(response=>{ 
             setTitle(response.data.title)
             setContents(response.data.content)
             setBtnNumber(idx)

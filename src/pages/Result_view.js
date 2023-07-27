@@ -1,6 +1,7 @@
 
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import Setence from "./Setence";
 import Chart from "./Chart";
 import List from "./List";
 import {useLocation } from 'react-router-dom'
@@ -16,7 +17,7 @@ const Result_view = () =>{
     const [result , setResult] = useState([])
     const getData=()=>{
         
-        axios.get(`http://localhost:5000/stock/${getKeyword}`).then(response=>{
+        axios.get(`http://localhost:8080/stock/${getKeyword}`).then(response=>{
             setPieArr(response.data.answer)
             setResult(response.data.sentence)
         }).catch(error=>console.log(error))
@@ -42,6 +43,10 @@ const Result_view = () =>{
                         
                         <div className={AppStyles.result_box}>
                             {<List result={result} keywords={getKeyword}/>}
+                        </div>
+                        <p className={AppStyles.main_tit}>Setence 별 시각화</p>    
+                        <div >
+                            {<Setence result={result} keywords={getKeyword}/>}
                         </div>
                     </div>
                 </div>

@@ -32,3 +32,24 @@
     flex: 1;
     text-align: right;
 }
+/* .result_box */
+.bar_list{
+    text-align: left;
+}
+.bar_list>p{
+    margin-bottom: 15px;
+}
+.bar_chart{
+    height: 150px;
+}
+.mid_title{
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.main_tit{
+    text-align: left;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 20px;;
+}
