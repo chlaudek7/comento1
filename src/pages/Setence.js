@@ -1,10 +1,6 @@
-import axios from  'axios';
 import AppStyles from "../assets/App.module.css";
-import React, {useState, useEffect} from 'react';
 import BarChart from "./Bar"
-import { Bar } from '@antv/g2plot';
 const Setence = (props)=>{
-    const keyword = props.keywords   
     const result = props.result   
     // console.log(result);
    
@@ -25,7 +21,7 @@ const Setence = (props)=>{
                     </div>
                 </li>
                 :
-                <li  className={AppStyles.result_box}>데이터 없음</li>
+                <li key={idx}  className={AppStyles.result_box}>데이터 없음</li>
             ))
            
         }

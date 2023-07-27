@@ -4,7 +4,7 @@ import axios from  'axios';
 import React, {useState, useEffect} from 'react';
 import {Link,useNavigate} from 'react-router-dom';
 import {ButtonGroup, Button,TextField } from '@mui/material';
-
+import { getNewsApi } from "../apis/news_apis";
 import AppStyles from "../assets/App.module.css";
 
 const Content = () =>{
@@ -52,20 +52,21 @@ const Content = () =>{
     const [contents,setContents]= useState("")
     const [btnNumber,setBtnNumber]= useState("")
     const [keywords,setKeword]= useState("")
-    const getData=(keyword,idx)=>{
-        axios.get(`http://localhost:8080/news/${keyword}`).then(response=>{ 
-            setTitle(response.data.title)
-            setContents(response.data.content)
-            setBtnNumber(idx)
-            setKeword(keyword)
-            console.log(response)
-        }).catch(error=>console.log(error))
-
+   
+    const clickKeyword = (keyword,idx) => {
+        getNewsApi(keyword).then(res =>
+            {
+                setBtnNumber(idx)
+                setKeword(keyword)
+                setContents(res.data.content)
+                setTitle(res.data.title)
+                console.log(res)
+            }
+        )
+        
     }
     useEffect(()=>{
-        setBtnNumber("")
-        // setKeword("반도체")
-        getData("반도체",0)
+        clickKeyword("반도체",0)
     },[])
 
  
@@ -74,7 +75,7 @@ const Content = () =>{
     const btnTxtArr = ['반도체', '영업이익', '상한가', '자동차'];
     const btnBox= btnTxtArr.map((btnTxt,idx)=>{
         return (
-            <Button value={idx} key={idx} className={(idx==btnNumber?"on":"")} variant="outlined"onClick={() => getData(btnTxt,idx)}
+            <Button value={idx} key={idx} className={(idx==btnNumber?"on":"")} variant="outlined"onClick={() => clickKeyword(btnTxt,idx)}
                 sx={{
                     "&.on" : {
                         backgroundColor: "#205acc",

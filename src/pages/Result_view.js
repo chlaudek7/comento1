@@ -8,7 +8,7 @@ import {useLocation } from 'react-router-dom'
 import axios from  'axios';
 import React, {useState, useEffect} from 'react';
 import AppStyles from "../assets/App.module.css";
-
+import { getStockApi } from "../apis/news_apis";
 
 const Result_view = () =>{
     const location = useLocation();
@@ -16,11 +16,13 @@ const Result_view = () =>{
     const [pieArr , setPieArr] = useState([])
     const [result , setResult] = useState([])
     const getData=()=>{
-        
-        axios.get(`http://localhost:8080/stock/${getKeyword}`).then(response=>{
-            setPieArr(response.data.answer)
-            setResult(response.data.sentence)
-        }).catch(error=>console.log(error))
+        getStockApi(getKeyword).then(res =>
+            {
+                setPieArr(res.data.answer)
+                setResult(res.data.sentence)
+            }
+        )
+       
 
     }
     useEffect(()=>{
