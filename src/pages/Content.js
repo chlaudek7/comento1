@@ -9,7 +9,7 @@ import AppStyles from "../assets/App.module.css";
 
 const Content = () =>{
     const navigate = useNavigate();
-   
+    // const AuthRoute = ({a})
     const styles = {
      
         "inputWrap" :{

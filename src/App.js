@@ -1,24 +1,27 @@
 
 import './App.css';
-import {HashRouter, Route,Routes} from 'react-router-dom';
+import {HashRouter, Route,Routes, useFetcher} from 'react-router-dom';
 import Home from './pages/Home.js'
 import Content from './pages/Content.js'
 import About from './pages/About.js'
 import Login from './pages/Login.js'
 import Result from './pages/Result_view.js'
 import "./assets/css.css";
-
+import { useEffect,useState } from 'react';
+import AuthRoute from './routes/Auth';
 function App() {
+  const [authenticated] = useState(!!sessionStorage.getItem("token"));
+  console.log(authenticated)
   return (
-
+    
     <Routes >
     
 			<Route path="/" element={<Home/>}/>
       <Route path="/about/*" element={<About/>}/>
       <Route path="/about/:id" element={<About/>}/>
-      <Route path="/Content" element={<Content/>}/>
+      <Route path="/Content" element={<AuthRoute authenticated={authenticated} component={<Content/>}/>}/>
       <Route path="/login" element={<Login/>}/>
-      <Route path="/Result" element={<Result/>}/>
+      <Route path="/Result" element={<AuthRoute authenticated={authenticated} component={<Result/>}/>}/>
     </Routes>
   );
 }

@@ -6,15 +6,37 @@ import {Avatar, Badge, Box, IconButton, Stack, Tooltip,} from '@mui/material';
 import { alpha } from '@mui/material/styles';
 import { usePopover } from '../../hooks/hooks/use-popover';
 import login from '../../assets/images/login.png'
-
+import user from '../../assets/images/avatar-seo-hyeon-ji.png'
 import { Link } from "react-router-dom";
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import userEvent from '@testing-library/user-event';
 const SIDE_NAV_WIDTH = 280;
 const TOP_NAV_HEIGHT = 64;
 
 const Header = (props) => {
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+  
     const { onNavOpen } = props;
     const accountPopover = usePopover();
-   
+    const [ing, setIng] = useState()
+    const userToken = sessionStorage.getItem("token")
+    const logOut = () =>{
+        sessionStorage.clear()
+        window.location="/login"
+    }
+    useEffect(()=>{
+        
+        setIng(userToken)
+    },[])
+    
 
 
 
@@ -53,7 +75,22 @@ const Header = (props) => {
                             </IconButton>
                         </Tooltip>
                       
-                            <Avatar onClick={()=>window.location.replace('/login')} ref={accountPopover.anchorRef} src={login}/>
+                           {
+                            (!!ing)?
+                            <div>
+                                <Avatar  ref={accountPopover.anchorRef} onClick={handleClick} src={user}/>
+                                <Menu
+                                    anchorEl={anchorEl}
+                                    open={open}
+                                    onClose={handleClose}
+                                >
+                                    <MenuItem onClick={logOut}>logout</MenuItem>
+                                </Menu>
+                            </div>
+                            :
+                            <Avatar onClick={()=>window.location.replace('/login')} ref={accountPopover.anchorRef} src={login}/> 
+                           
+                           }
                         
                   
                     </Stack>

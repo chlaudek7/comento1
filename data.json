@@ -507,5 +507,15 @@
       ]
       }
   
+      ],
+      "user": [
+        {
+          "id": "test",
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiBEb2UiLCJpZCI6InRlc3RAdGVzdC5jb20ifQ.HcUeCxwptMA3Q1d8-Op8bm9apNT6skrX_8yDFz-ULQ4"
+        },
+        {
+          "id": "test2",
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmVubnkiLCJpZCI6InRlc3QyQHRlc3QuY29tIn0.CCFBjF1s-eDrvXTgsAP_l5cvq3S-2mj4wS5xBNote8M"
+        }
       ]
   }
